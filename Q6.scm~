@@ -1,0 +1,11 @@
+#lang racket
+(define mix
+  (lambda (l1 l2)
+    (mix-list l1 l2 '())))
+
+(define mix-list
+  (lambda (l1 l2 l)
+    (if (null? l1) l
+        (mix-list (cdr l1) (cdr l2) (cons l (cons (car l1) (car l2)))))))
+
+(mix '(1 2 3) '(alpha beta gamma))
